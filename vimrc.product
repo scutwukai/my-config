@@ -1,0 +1,7 @@
+colorscheme lucius
+set t_Co=256
+LuciusWhiteHighContrast
+
+set showmatch
+set incsearch
+set hlsearch

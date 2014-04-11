@@ -1,0 +1,8 @@
+colorscheme lucius
+set t_Co=256
+LuciusBlackHighContrast
+
+set showmatch
+set incsearch
+set hlsearch
+let python_highlight_all=1

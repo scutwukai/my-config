@@ -1,0 +1,39 @@
+set fileencodings=ucs-bom,utf-8,cp936,gbk,gb18030,big5,euc-jp,euc-kr,latin1
+set encoding=utf-8
+set termencoding=utf-8
+
+filetype on
+syntax on
+set ru
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set noai
+set nosi
+autocmd bufread,bufnewfile * set inde=
+
+function LocalVimrc(current_file)
+    let l:directory = fnameescape(fnamemodify(a:current_file, ":p:h"))
+    let l:rcfiles = []
+    for l:rcfile in findfile(".vimrc", l:directory . ";", -1)
+        let l:rcfiles = add(l:rcfiles, resolve(fnamemodify(l:rcfile, ":p")))
+    endfor
+    let l:rcfiles = sort(l:rcfiles)
+
+    while len(l:rcfiles) > 0 && len(l:rcfiles[0]) <= len($MYVIMRC)
+        call remove(l:rcfiles, 0, 0)
+    endwhile
+
+    for l:rcfile in l:rcfiles
+        if filereadable(l:rcfile)
+            let l:source_command = "source " . l:rcfile
+            exec l:source_command
+        endif
+    endfor
+endfunction
+
+autocmd BufNewFile,BufReadPre * call LocalVimrc(@%)
+
+
