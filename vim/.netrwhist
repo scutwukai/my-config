@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/gzzhaohaoquan/.vim'
-let g:netrw_dirhist_2='/etc/uwsgi/gzzhaohaoquan'
-let g:netrw_dirhist_3='/home/gzzhaohaoquan/.igor'
-let g:netrw_dirhist_4='/home/gzzhaohaoquan/project/uu-mall-interface'
